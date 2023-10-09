@@ -1,5 +1,8 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+import { loremIpsum } from "react-lorem-ipsum";
+import { useEffect, useState } from "react";
+
 
 
 export function useBuscarInfoQuery() {
@@ -13,6 +16,8 @@ export function useBuscarInfoQuery() {
     });
   }
 
+
+
 export const buscarInfoQuery = async () => { 
 
   let url= `https://dog.ceo/api/breeds/image/random`;
@@ -23,6 +28,7 @@ export const buscarInfoQuery = async () => {
   let perro = {
     imagen: data.message,
     nombre: nombreRandom(),
+    descripcion: loremIpsum(),
   }
   
   return perro;  
@@ -33,4 +39,5 @@ function nombreRandom(){
   console.log("random", r);
   return r;
 }
+
 
