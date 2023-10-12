@@ -145,7 +145,7 @@ return (
                             </Typography>
                             </AccordionDetails>
                         </Accordion>
-                        <Button style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(item)}>rechazar</Button>
+                        <Button style={{backgroundColor: 'red', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> rechazarPerrito(item)}>Arrepentirse</Button>
                     </Card>
                 </ListItem>   
                 </>
@@ -165,10 +165,24 @@ return (
                                 image={item?.imagen}
                             /> 
                         </CardActionArea>
-                        <Typography gutterBottom variant="h5" component="div">
-                        {item?.nombre}
-                        </Typography>
-                        <Button style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(item)}>aceptar</Button>
+                        <Accordion >
+                            <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1bh-content"
+                            id="panel1bh-header"
+                            >
+                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                                {item.nombre}
+                            </Typography>
+                            <Typography sx={{ color: 'text.secondary' }}>ver descripcion</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                            <Typography>
+                                {item.descripcion}
+                            </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Button style={{backgroundColor: 'green', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> aceptarPerrito(item)}>Arrepentirse</Button>
                     </Card>
                 </ListItem>   
                 </>
