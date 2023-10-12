@@ -13,7 +13,12 @@ import Card from '@mui/material/Card';
 import { useBuscarInfoQuery } from "../../queries/query";
 import Grid from '@mui/material/Unstable_Grid2';
 import Stack from '@mui/material/Stack';
-import { ExpandMoreIcon } from '@mui/icons-material/ExpandMore';
+
+import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 export default function Perritos(){
@@ -72,8 +77,15 @@ function rechazarPerrito(item){
     }
     console.log(rechazados);
 }
-
-
+/*
+export default function ControlledAccordions() {
+    const [expanded, setExpanded] = React.useState<string | false>(false);
+  
+    const handleChange =
+      (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+        setExpanded(isExpanded ? panel : false);
+      };*/
+//expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
 
 // TODO: libreria lorem ipsum descripcion perros
 return (
@@ -116,9 +128,23 @@ return (
                                 image={item?.imagen}
                             /> 
                         </CardActionArea>
-                        <Typography gutterBottom variant="h5" component="div">
-                        {item?.nombre}
-                        </Typography>
+                        <Accordion >
+                            <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1bh-content"
+                            id="panel1bh-header"
+                            >
+                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                                {item.nombre}
+                            </Typography>
+                            <Typography sx={{ color: 'text.secondary' }}>ver descripcion</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                            <Typography>
+                                {item.descripcion}
+                            </Typography>
+                            </AccordionDetails>
+                        </Accordion>
                         <Button style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(item)}>rechazar</Button>
                     </Card>
                 </ListItem>   
