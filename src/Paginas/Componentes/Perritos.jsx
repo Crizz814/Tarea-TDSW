@@ -92,8 +92,8 @@ return (
     <Grid container spacing={2} sx={{ overflow: 'auto', width: '100%'}}>
         <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
-            <h1>Perros</h1>
-            {cargandoPerrito && <LinearProgress/>}
+            <h1 style={{margin: '0px', textAlign: 'center'}}>Perro Candidato</h1>
+            {recargandoPerrito || cargandoPerrito ? <LinearProgress/> :
             <Card sx={{ minWidth: '100%' }}>
                 <CardActionArea style={ {width: '100%', aspectRatio }}>
                     <CardMedia
@@ -111,12 +111,12 @@ return (
                 <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
                 <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
                 <Button disabled={recargandoPerrito}  style={{backgroundColor: 'blue', color: 'white'}} variant='outlined' fullWidth centerRipple  onClick={()=> perritoRandom()}>random</Button>
-                </Card>
+                </Card>}
             </Stack>
         </Grid>
-        <Grid item md={4} xs={12} >
-        <h1>Aceptados</h1>
-        <List style={{ maxHeight: '84vh', overflow: 'auto' }}>
+        <Grid item md={4} xs={6} >
+        <h1 style={{margin: '0px', textAlign: 'center'}}>Aceptados</h1>
+        <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
             {aceptados.map((item, index) => (
                 <>
                 <ListItem key={index}>
@@ -133,10 +133,10 @@ return (
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                             >
-                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                            <Typography sx={{ width: '75%', flexShrink: 0 }}>
                                 {item.nombre}
                             </Typography>
-                            <Typography sx={{ color: 'text.secondary' }}>ver descripcion</Typography>
+                            <Typography sx={{ color: 'text.secondary'}}>ver descripcion</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                             <Typography>
@@ -151,9 +151,9 @@ return (
             ))}
         </List>
         </Grid>
-        <Grid item md={4} xs={12} >
-            <h1>Rechazados</h1>
-        <List style={{ maxHeight: '84vh', overflow: 'auto' }}>
+        <Grid item md={4} xs={6} >
+            <h1 style={{margin: '0px', textAlign: 'center'}}>Rechazados</h1>
+        <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
             {rechazados.map((item, index) => (
                 <>
                 <ListItem key={index}>
@@ -170,7 +170,7 @@ return (
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                             >
-                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                            <Typography sx={{ width: '75%', flexShrink: 0 }}>
                                 {item.nombre}
                             </Typography>
                             <Typography sx={{ color: 'text.secondary' }}>ver descripcion</Typography>
