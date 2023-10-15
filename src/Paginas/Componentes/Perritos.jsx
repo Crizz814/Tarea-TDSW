@@ -48,7 +48,7 @@ export default function Perritos(){
 */
     const [aceptados, setAceptados] = useState([]);
     const [rechazados, setRechazados] = useState([]);
-    const {data: perro, isLoading: cargandoPerrito, refetch} = useBuscarInfoQuery();
+    const {data: perro, isLoading: cargandoPerrito, refetch, isRefetching: recargandoPerrito} = useBuscarInfoQuery();
     const aspectRatio = perro?.imagen.height / perro?.imagen.width;
 
 function perritoRandom(){
@@ -87,7 +87,6 @@ export default function ControlledAccordions() {
       };*/
 //expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
 
-// TODO: libreria lorem ipsum descripcion perros
 return (
     <>
     <Grid container spacing={2} sx={{ overflow: 'auto', width: '100%'}}>
@@ -109,9 +108,9 @@ return (
                 <Typography gutterBottom variant="body1" component="div">
                 descripcion: {perro?.descripcion}
                 </Typography>
-                <Button style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
-                <Button style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
-                <Button style={{backgroundColor: 'blue', color: 'white'}} variant='outlined' fullWidth centerRipple  onClick={()=> perritoRandom()}>random</Button>
+                <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
+                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
+                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'blue', color: 'white'}} variant='outlined' fullWidth centerRipple  onClick={()=> perritoRandom()}>random</Button>
                 </Card>
             </Stack>
         </Grid>
@@ -145,7 +144,7 @@ return (
                             </Typography>
                             </AccordionDetails>
                         </Accordion>
-                        <Button style={{backgroundColor: 'red', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> rechazarPerrito(item)}>Arrepentirse</Button>
+                        <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> rechazarPerrito(item)}>Arrepentirse</Button>
                     </Card>
                 </ListItem>   
                 </>
@@ -182,7 +181,7 @@ return (
                             </Typography>
                             </AccordionDetails>
                         </Accordion>
-                        <Button style={{backgroundColor: 'green', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> aceptarPerrito(item)}>Arrepentirse</Button>
+                        <Button disabled={recargandoPerrito} style={{backgroundColor: 'green', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> aceptarPerrito(item)}>Arrepentirse</Button>
                     </Card>
                 </ListItem>   
                 </>

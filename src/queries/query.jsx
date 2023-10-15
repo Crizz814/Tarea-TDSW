@@ -23,8 +23,6 @@ export const buscarInfoQuery = async () => {
   let url= `https://dog.ceo/api/breeds/image/random`;
 
   const { data } = await axios.get(url);
-  //console.log(data.message);
-  // let perro (generar nombre y desc random)
   let perro = {
     imagen: data.message,
     nombre: nombreRandom(),
