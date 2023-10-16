@@ -54,12 +54,7 @@ export default function Perritos(){
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
-      };
-
-function perritoRandom(){
-    console.log(perro);
-    refetch();
-}
+    };
 
 function aceptarPerrito(item){
     setExpanded(false);
@@ -96,34 +91,37 @@ export default function ControlledAccordions() {
 
 return (
     <>
-    <Grid container spacing={2} sx={{ overflow: 'auto', width: '100%'}}>
+    <Grid container style={{backgroundColor: '#212d45', width: '100%' }}>
+    <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 10px'}}>Tinder de Perritos</h1>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Perro Candidato</h2>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Aceptados</h2>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Rechazados</h2>
+    </Grid>
+    <Grid container spacing={2} sx={{ width: '100%', minHeight: '85vh', backgroundColor: '#d5d5d5', margin: '0px'}}>
         <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
-            <h1 style={{margin: '0px', textAlign: 'center'}}>Perro Candidato</h1>
             {recargandoPerrito || cargandoPerrito ? <LinearProgress/> :
-            <Card sx={{ minWidth: '100%' }}>
-                <CardActionArea style={ {width: '100%', aspectRatio }}>
+            <Card>
+                <CardActionArea style={ { aspectRatio }}>
                     <CardMedia
                         component="img"
                         image={perro?.imagen}
-                        style={ {width: '100%' }}
+                        style={{objectFit: 'contain', maxHeight: '60vh'}}
                     /> 
                 </CardActionArea>
                 <Typography gutterBottom variant="h5" component="div">
-                nombre: {perro?.nombre}
+                Nombre: {perro?.nombre}
                 </Typography>
                 <Typography gutterBottom variant="body1" component="div">
-                descripcion: {perro?.descripcion}
+                Descripcion: {perro?.descripcion}
                 </Typography>
                 <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
-                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
-                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'blue', color: 'white'}} variant='outlined' fullWidth centerRipple  onClick={()=> perritoRandom()}>random</Button>
+                <Button disabled={recargandoPerrito} style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
                 </Card>}
             </Stack>
         </Grid>
-        <Grid item md={4} xs={6} >
-        <h1 style={{margin: '0px', textAlign: 'center'}}>Aceptados</h1>
-        <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
+        <Grid item md={4} xs={6} style={{ backgroundColor: '#dfdfdf'}}>
+        <List style={{ maxHeight: '84vh', overflow: 'auto' }}>
             {aceptados.map((item, index) => (
                 <>
                 <ListItem key={index}>
@@ -132,6 +130,7 @@ return (
                             <CardMedia
                                 component="img"
                                 image={item?.imagen}
+                                style={{objectFit: 'contain', maxHeight: '30vh'}}
                             /> 
                         </CardActionArea>
                         {console.log(item.verDescripcion)}
@@ -160,8 +159,8 @@ return (
         </List>
         </Grid>
         <Grid item md={4} xs={6} >
-            <h1 style={{margin: '0px', textAlign: 'center'}}>Rechazados</h1>
-        <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
+            
+        <List style={{ maxHeight: '84vh', overflow: 'auto' }}>
             {rechazados.map((item, index) => (
                 <>
                 <ListItem key={index}>
@@ -170,6 +169,7 @@ return (
                             <CardMedia
                                 component="img"
                                 image={item?.imagen}
+                                style={{objectFit: 'contain', maxHeight: '30vh'}}
                             /> 
                         </CardActionArea>
                         <Accordion expanded={expanded === item.nombre} onChange={handleChange(item.nombre)}>
