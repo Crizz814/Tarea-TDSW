@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { QueryClient } from 'react-query';
 import { perritoRandom } from '../../queries/query';
 */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, CardActionArea, Divider, LinearProgress, List, ListItem, Typography } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
@@ -50,6 +50,11 @@ export default function Perritos(){
     const [rechazados, setRechazados] = useState([]);
     const {data: perro, isLoading: cargandoPerrito, refetch, isRefetching: recargandoPerrito} = useBuscarInfoQuery();
     const aspectRatio = perro?.imagen.height / perro?.imagen.width;
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+      };
 
 function perritoRandom(){
     console.log(perro);
@@ -57,6 +62,7 @@ function perritoRandom(){
 }
 
 function aceptarPerrito(item){
+    setExpanded(false);
     if(rechazados.includes(item)){
         setRechazados(rechazados.filter((perro) => perro !== item));
         setAceptados([item, ...aceptados]);
@@ -68,6 +74,7 @@ function aceptarPerrito(item){
 }
 
 function rechazarPerrito(item){
+    setExpanded(false);
     if(aceptados.includes(item)){
         setAceptados(aceptados.filter((perro) => perro !== item));
         setRechazados([item, ...rechazados]);
@@ -75,8 +82,8 @@ function rechazarPerrito(item){
         setRechazados([item, ...rechazados]);
         refetch();
     }
-    console.log(rechazados);
 }
+
 /*
 export default function ControlledAccordions() {
     const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -127,23 +134,24 @@ return (
                                 image={item?.imagen}
                             /> 
                         </CardActionArea>
-                        <Accordion >
+                        {console.log(item.verDescripcion)}
+                        <Accordion expanded={expanded === item.nombre} onChange={handleChange(item.nombre)}>                     
                             <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1bh-content"
-                            id="panel1bh-header"
-                            >
-                            <Typography sx={{ width: '75%', flexShrink: 0 }}>
-                                {item.nombre}
-                            </Typography>
-                            <Typography sx={{ color: 'text.secondary'}}>ver descripcion</Typography>
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1bh-content"
+                                id="panel1bh-header"
+                                >
+                                <Typography sx={{ width: '75%', flexShrink: 0 }}>
+                                    {item.nombre}
+                                </Typography>
+                                <Typography sx={{ color: 'text.secondary'}}>ver descripcion</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                            <Typography>
-                                {item.descripcion}
-                            </Typography>
+                                <Typography>
+                                    {item.descripcion}
+                                </Typography>
                             </AccordionDetails>
-                        </Accordion>
+                        </Accordion> 
                         <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '100%'}} variant='outlined' fullWidth centerRipple onClick={()=> rechazarPerrito(item)}>Arrepentirse</Button>
                     </Card>
                 </ListItem>   
@@ -164,7 +172,7 @@ return (
                                 image={item?.imagen}
                             /> 
                         </CardActionArea>
-                        <Accordion >
+                        <Accordion expanded={expanded === item.nombre} onChange={handleChange(item.nombre)}>
                             <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"
