@@ -97,7 +97,7 @@ return (
     <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Aceptados</h2>
     <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Rechazados</h2>
     </Grid>
-    <Grid container spacing={2} sx={{ width: '100%', minHeight: '85vh', backgroundColor: '#d5d5d5', margin: '0px'}}>
+    <Grid container spacing={2} sx={{ width: '100%', minHeight: '88vh', backgroundColor: '#d5d5d5', margin: '0px'}}>
         <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
             {recargandoPerrito || cargandoPerrito ? <LinearProgress/> :
