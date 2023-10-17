@@ -56,10 +56,14 @@ function rechazarPerrito(item){
 
 return (
     <>
-    <Grid container spacing={2} sx={{ overflow: 'auto', width: '100%'}}>
-        <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
+    <Grid container style={{backgroundColor: '#212d45', width: '100%' }}>
+    <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 10px'}}>Tinder de Perritos</h1>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Perro Candidato</h2>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Aceptados</h2>
+    <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Rechazados</h2>
+    </Grid>
+    <Grid container spacing={2} sx={{ width: '100%', minHeight: '88vh', backgroundColor: '#d5d5d5', margin: '0px'}}>        <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
-            <h1 style={{margin: '0px', textAlign: 'center'}}>Perro Candidato</h1>
             {recargandoPerrito || cargandoPerrito ? <LinearProgress/> :
             <Card sx={{ minWidth: '100%' }}>
                 <CardActionArea style={ {width: '100%', aspectRatio }}>
@@ -77,12 +81,10 @@ return (
                 </Typography>
                 <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
                 <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
-                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'blue', color: 'white'}} variant='outlined' fullWidth centerRipple  onClick={()=> perritoRandom()}>random</Button>
                 </Card>}
             </Stack>
         </Grid>
         <Grid item md={4} xs={6} >
-        <h1 style={{margin: '0px', textAlign: 'center'}}>Aceptados</h1>
         <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
             {aceptados.map((item, index) => (
                 <>
@@ -120,7 +122,6 @@ return (
         </List>
         </Grid>
         <Grid item md={4} xs={6} >
-            <h1 style={{margin: '0px', textAlign: 'center'}}>Rechazados</h1>
         <List style={{ maxHeight: '90vh', overflow: 'auto' }}>
             {rechazados.map((item, index) => (
                 <>
