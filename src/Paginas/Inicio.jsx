@@ -11,6 +11,9 @@ export default function Inicio(){
             <Link to={"/Registro/"}>
                 <Button>REgistro</Button>
             </Link>
+            <Link to={"/Interesado/"}>
+                <Button>Interesado</Button>
+            </Link>
         </>
     );
 }
