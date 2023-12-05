@@ -12,7 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
           <RouterApp />
-      </BrowserRouter>    
+      </BrowserRouter>
     </QueryClientProvider>
     </>
   )
