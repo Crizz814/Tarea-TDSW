@@ -4,6 +4,7 @@ import Perritos from "./src/Paginas/Componentes/Perritos";
 import Registro from "./src/Paginas/Componentes/Registro";
 import { PerritoProvider } from "./src/Context/PerritoContext";
 import Interesado from "./src/Paginas/Componentes/Interesado";
+import {Candidato} from "./src/Paginas/Componentes/Candidato";
 
 const RouterApp = () => {
     return (
@@ -16,6 +17,8 @@ const RouterApp = () => {
                 <PerritoProvider>
                     <Registro />
                 </PerritoProvider>}/>
+            <Route path="*" element={<h1>404</h1>} />
+            <Route path="/Candidato" element={<Candidato />}/>
         </Routes>
         </>
     );
