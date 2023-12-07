@@ -2,15 +2,15 @@ import { Button, Card, CardActionArea, CardMedia, Container, Divider, Grid, Line
 import { useRandomQuery } from "../../queries/queryRandom";
 
 
-export const PerroInteresado = (perro) => {
-    console.log(perro);
-}
 
+export function Candidato(interesado){
 
-export function Candidato(){
+    console.log("interesado: ",interesado);
 
 
     const {data: perro, isLoading, isError, error, refetch} = useRandomQuery();
+    //if (perro.id == interesado) refetch();
+    console.log(perro?.id);
     let aspectRatio;
     if (perro?.url_imagen.height && perro?.url_imagen.width) {
       aspectRatio = perro.url_imagen.height / perro.url_imagen.width;
@@ -49,6 +49,7 @@ export function Candidato(){
                     <Typography gutterBottom variant="body1" component="div">
                     descripcion: {perro?.descripcion}
                     </Typography>
+                    <Button variant="contained" onClick={refetch}>Siguiente</Button>
                 </Card>
             </Stack>
         </Grid>

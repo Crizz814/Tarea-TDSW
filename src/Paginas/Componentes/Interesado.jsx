@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePerroQuery } from "../../queries/queryPerros";
 import { Button, Card, CardContent, CardMedia, Container, Grid, LinearProgress, List, ListItem } from "@mui/material";
-import {PerroInteresado} from "../Componentes/Candidato.jsx";
+import {Candidato} from "../Componentes/Candidato.jsx";
 import { Link } from "react-router-dom";
 
 export default function Interesado() {
@@ -25,9 +25,11 @@ export default function Interesado() {
         );
     }
 
-    function PerroElegido(perro){
-        PerroInteresado(perro);
+    const PerroInteresado = (perro) => {
+        let interesado = perro.id;
+        Candidato(interesado);
     }
+
 
     return (
         <Container>
@@ -40,8 +42,8 @@ export default function Interesado() {
                                 Nombre : {perro.nombre} <br />
                                 Descripción : {perro.descripcion}
                             </CardContent>
-                            <Link to={"/Candidato"}>
-                                <Button onClick={()=> PerroElegido(perro)} >
+                            <Link to="/Candidato">
+                                <Button onClick={()=> PerroInteresado(perro)} >
                                     Elegir
                                 </Button>
                             </Link>
