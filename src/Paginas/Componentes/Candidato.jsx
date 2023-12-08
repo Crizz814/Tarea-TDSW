@@ -3,14 +3,15 @@ import { useRandomQuery } from "../../queries/queryRandom";
 
 
 
-export function Candidato(interesado){
+export function Candidato (interesado) {
 
     console.log("interesado: ",interesado);
 
 
-    const {data: perro, isLoading, isError, error, refetch} = useRandomQuery();
+    const {data: perro, isLoading, isError, error, refetch} = useRandomQuery(interesado);
     //if (perro.id == interesado) refetch();
-    console.log(perro?.id);
+    let candidato = perro;
+    console.log("candidato: ",candidato);
     let aspectRatio;
     if (perro?.url_imagen.height && perro?.url_imagen.width) {
       aspectRatio = perro.url_imagen.height / perro.url_imagen.width;
