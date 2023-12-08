@@ -12,10 +12,12 @@ export const useRandomQuery = (id) => {
 };
 
 const fetchRandomPerro = async (id) => {
+  
   const cliente = axios.create({
     baseURL: "http://localhost:8000/api/",
   });
-
-  const { data } = await cliente.get('perro/perroRandom/${id}');
+  console.log("useRandomQuery: ", id);
+  const { data } = await cliente.get(`interaccion/candidato?id=${id}`);
+  
   return data.perro;
 };

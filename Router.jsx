@@ -18,7 +18,7 @@ const RouterApp = () => {
                     <Registro />
                 </PerritoProvider>}/>
             <Route path="*" element={<h1>404</h1>} />
-            <Route path="/Candidato" element={<Candidato />}/>
+            <Route path="/Candidato/:interesado" element={<Candidato />}/>
         </Routes>
         </>
     );

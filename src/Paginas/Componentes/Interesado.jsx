@@ -25,12 +25,6 @@ export default function Interesado() {
         );
     }
 
-    const PerroInteresado = (perro) => {
-        let interesado = perro.id;
-        Candidato(interesado);
-    }
-
-
     return (
         <Container>
             <Grid container spacing={1}>
@@ -42,8 +36,8 @@ export default function Interesado() {
                                 Nombre : {perro.nombre} <br />
                                 Descripción : {perro.descripcion}
                             </CardContent>
-                            <Link to="/Candidato">
-                                <Button onClick={()=> PerroInteresado(perro)} >
+                            <Link to={`/Candidato/${perro.id}`} >
+                                <Button >
                                     Elegir
                                 </Button>
                             </Link>
