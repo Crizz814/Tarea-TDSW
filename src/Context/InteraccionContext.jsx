@@ -1,6 +1,6 @@
 import React, {  createContext, useContext,useState, useMemo, useEffect } from "react";
 import { useMutation } from "react-query";
-import { useRegistrarInteraccion } from "../queries/queryInterracion";
+import { useRegistrarInteraccion } from "../queries/queryInteraccion";
 
 const InteraccionContext = createContext();
 

@@ -6,5 +6,9 @@ const cliente = axios.create({
 
 export const useRegistrarInteraccion = async (form) => {
     const { data } = await cliente.post("interaccion/registrarInteraccion", form);
+    console.log(data);
+    if(data === "It's a Match!"){
+        alert(data);
+    }
     return data;
 }

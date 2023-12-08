@@ -5,6 +5,7 @@ import Registro from "./src/Paginas/Componentes/Registro";
 import { PerritoProvider } from "./src/Context/PerritoContext";
 import Interesado from "./src/Paginas/Componentes/Interesado";
 import {Candidato} from "./src/Paginas/Componentes/Candidato";
+import { InteraccionProvider } from "./src/Context/InteraccionContext";
 
 const RouterApp = () => {
     return (
@@ -18,7 +19,10 @@ const RouterApp = () => {
                     <Registro />
                 </PerritoProvider>}/>
             <Route path="*" element={<h1>404</h1>} />
-            <Route path="/Candidato/:interesado" element={<Candidato />}/>
+            <Route path="/Candidato/:interesado" element={
+                <InteraccionProvider>
+                    <Candidato />
+                </InteraccionProvider>}/>
         </Routes>
         </>
     );
