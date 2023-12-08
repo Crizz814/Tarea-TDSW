@@ -9,7 +9,10 @@ export default function Inicio(){
                 <Button>Perritos</Button>
             </Link>
             <Link to={"/Registro/"}>
-                <Button>REgistro</Button>
+                <Button>Registro</Button>
+            </Link>
+            <Link to={"/Interesado/"}>
+                <Button>Interesado</Button>
             </Link>
         </>
     );
