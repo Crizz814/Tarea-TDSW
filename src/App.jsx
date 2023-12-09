@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import Perritos from "./Paginas/Componentes/Perritos";
-import RegistrarPerro from "./Paginas/RegistrarPerro";
+import RouterApp from "../Router";
+import { BrowserRouter } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -8,8 +9,9 @@ function App() {
   return (
     <>
     <QueryClientProvider client={queryClient}>
-      {/*<Perritos/>*/}
-      <RegistrarPerro/>
+      <BrowserRouter>
+          <RouterApp />
+      </BrowserRouter>
     </QueryClientProvider>
     </>
   )

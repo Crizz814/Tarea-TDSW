@@ -62,25 +62,26 @@ return (
     <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Aceptados</h2>
     <h2 style={{width: '33%', textAlign: 'center', margin: '0px 0px 10px'}}>Rechazados</h2>
     </Grid>
-    <Grid container spacing={2} sx={{ width: '100%', minHeight: '88vh', backgroundColor: '#d5d5d5', margin: '0px'}}>        <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
+    <Grid container spacing={2} sx={{ width: '100%', minHeight: '88vh', backgroundColor: '#d5d5d5', margin: '0px'}}>
+        <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
             {recargandoPerrito || cargandoPerrito ? <LinearProgress/> :
-            <Card sx={{ minWidth: '100%' }}>
-                <CardActionArea style={ {width: '100%', aspectRatio }}>
-                    <CardMedia
-                        component="img"
-                        image={perro?.imagen}
-                        style={ {width: '100%' }}
-                    /> 
-                </CardActionArea>
-                <Typography gutterBottom variant="h5" component="div">
-                nombre: {perro?.nombre}
-                </Typography>
-                <Typography gutterBottom variant="body1" component="div">
-                descripcion: {perro?.descripcion}
-                </Typography>
-                <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
-                <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
+                <Card sx={{ minWidth: '100%' }}>
+                    <CardActionArea style={ {width: '100%', aspectRatio }}>
+                        <CardMedia
+                            component="img"
+                            image={perro?.imagen}
+                            style={ {width: '100%' }}
+                        /> 
+                    </CardActionArea>
+                    <Typography gutterBottom variant="h5" component="div">
+                    nombre: {perro?.nombre}
+                    </Typography>
+                    <Typography gutterBottom variant="body1" component="div">
+                    descripcion: {perro?.descripcion}
+                    </Typography>
+                    <Button disabled={recargandoPerrito} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> rechazarPerrito(perro)}>rechazar</Button>
+                    <Button disabled={recargandoPerrito}  style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=> aceptarPerrito(perro)}>aceptar</Button>
                 </Card>}
             </Stack>
         </Grid>
