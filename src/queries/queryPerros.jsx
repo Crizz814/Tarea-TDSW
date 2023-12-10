@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { clienteAxios } from "../Helpers/clienteAxios";
 
 export function usePerroQuery() {
   return useQuery('PerroQuery', PerroQuery, {
@@ -12,11 +13,8 @@ export function usePerroQuery() {
 }
 
 export const PerroQuery = async () => {
-    const cliente = axios.create({
-        baseURL: "http://localhost:8000/api/",
-    });
 
-    const { data } = await cliente.get("perro/listarPerros");
+    const { data } = await clienteAxios.get("perro/listarPerros");
     console.log(data);
     return data.perros;
 }

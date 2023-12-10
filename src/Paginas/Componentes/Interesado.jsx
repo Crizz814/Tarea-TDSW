@@ -26,10 +26,14 @@ export default function Interesado() {
     }
 
     return (
-        <Container>
+        <>
+        
+            <Link to={'/'} >
+                <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+            </Link>
             <Grid container spacing={1}>
                 {perros?.map((perro) => (
-                    <Grid item xs={3} md={3} key={perro.id}>
+                    <Grid item xs={3} md={3} key={perro.id} alignItems="center" >
                         <Card>
                             <CardMedia sx={{ aspectRatio }} md={{aspectRatio}} component="img" image={perro.url_imagen} alt={perro.nombre} />
                             <CardContent>
@@ -45,6 +49,7 @@ export default function Interesado() {
                     </Grid>
                 ))}
             </Grid>
-        </Container>
+        
+        </>
     )
 }

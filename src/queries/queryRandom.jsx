@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { clienteAxios } from "../Helpers/clienteAxios";
 
 export const useRandomQuery = (id) => {
   return useQuery(['RandomQuery', id], () => fetchRandomPerro(id), {
@@ -13,11 +14,9 @@ export const useRandomQuery = (id) => {
 
 const fetchRandomPerro = async (id) => {
   
-  const cliente = axios.create({
-    baseURL: "http://localhost:8000/api/",
-  });
+
   console.log("useRandomQuery: ", id);
-  const { data } = await cliente.get(`interaccion/candidato?id=${id}`);
+  const { data } = await clienteAxios.get(`interaccion/candidato?id=${id}`);
   
   return data.perro;
 };

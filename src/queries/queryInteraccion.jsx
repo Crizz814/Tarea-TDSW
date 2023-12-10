@@ -1,14 +1,13 @@
 import axios from "axios";
-
-const cliente = axios.create({
-    baseURL: "http://localhost:8000/api/",
-});
+import Swal from "sweetalert2";
+import { clienteAxios } from "../Helpers/clienteAxios";
 
 export const useRegistrarInteraccion = async (form) => {
-    const { data } = await cliente.post("interaccion/registrarInteraccion", form);
+    const { data } = await clienteAxios.post("interaccion/registrarInteraccion", form);
     console.log(data);
     if(data === "It's a Match!"){
-        alert(data);
+        Swal.fire("It's a Match!");
     }
     return data;
-}
+};
+

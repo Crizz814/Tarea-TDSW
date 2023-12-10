@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useBuscarImagenQuery } from '../../queries/queryImagen';
 import { useForm } from 'react-hook-form';
 import { usePerrito } from '../../Context/PerritoContext';
+import { Link } from 'react-router-dom';
 
 function Registro() {
 
@@ -24,6 +25,9 @@ function Registro() {
 
   return (
     <Container>
+        <Link to={'/'} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+        </Link>
         <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45" }}>Registro de Perritos</h1>
         <form id="caja" onSubmit={handleSubmit(onSubmit)}>
             <Grid
