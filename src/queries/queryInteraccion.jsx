@@ -1,4 +1,9 @@
 import axios from "axios";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+// or via CommonJS
+//onst Swal = require('sweetalert2')
 
 const cliente = axios.create({
     baseURL: "http://localhost:8000/api/",
@@ -6,9 +11,17 @@ const cliente = axios.create({
 
 export const useRegistrarInteraccion = async (form) => {
     const { data } = await cliente.post("interaccion/registrarInteraccion", form);
-    console.log(data);
-    if(data === "It's a Match!"){
-        alert(data);
+    console.log(data.mensaje);
+    if(data.mensaje === "It's a Match!"){
+        const MySwal = withReactContent(Swal)
+        MySwal.fire({
+            title: <p>"It's a Match!"</p>,
+            text: 'Haz hecho match con este usuario!',
+            icon: 'warning',
+        })
     }
     return data;
 }
+
+
+

@@ -6,6 +6,7 @@ import { PerritoProvider } from "./src/Context/PerritoContext";
 import Interesado from "./src/Paginas/Componentes/Interesado";
 import {Candidato} from "./src/Paginas/Componentes/Candidato";
 import { InteraccionProvider } from "./src/Context/InteraccionContext";
+import { Listas } from "./src/Paginas/Componentes/Listas";
 
 const RouterApp = () => {
     return (
@@ -23,6 +24,7 @@ const RouterApp = () => {
                 <InteraccionProvider>
                     <Candidato />
                 </InteraccionProvider>}/>
+            <Route path="/Candidato/:interesado/:lista" element={<Listas/>}/>
         </Routes>
         </>
     );

@@ -1,6 +1,6 @@
 import { Button, Card, CardActionArea, CardMedia, Container, Divider, Grid, LinearProgress, Stack, Typography } from "@mui/material";
 import { useRandomQuery } from "../../queries/queryRandom";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useInteraccion } from '../../Context/InteraccionContext';
 
@@ -22,7 +22,7 @@ export function Candidato ({params}) {
 
     //const {register, handleSubmit} = useForm();
 
-    const { registrarInteraccion } = useInteraccion(); // AQUI ME TIRA ERROOOOOOOR
+    const { registrarInteraccion } = useInteraccion(); 
     
     let aspectRatio;
     if (perro?.url_imagen.height && perro?.url_imagen.width) {
@@ -71,6 +71,16 @@ export function Candidato ({params}) {
                 </Card>
             </Stack>
         </Grid>
+        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
+            <Button >
+                Rechazados
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
+            <Button >
+                Aceptados
+            </Button>
+        </Link>
         </Container>
 
         </>
