@@ -78,8 +78,7 @@ export function Candidato ({params}) {
                 Ver aceptados
             </Button>
         </Link>
-        <Container>
-        <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
+        <Grid item md={4} xs={12} style={{ overflow: 'auto' }} alignItems="center">
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
                 <Card sx={{ minWidth: '100%' }}>
                     <CardActionArea style={ {width: '100%', aspectRatio }}>
@@ -100,7 +99,6 @@ export function Candidato ({params}) {
                 </Card>
             </Stack>
         </Grid>
-        </Container>
 
         </>
     )

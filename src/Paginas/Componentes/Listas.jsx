@@ -33,11 +33,19 @@ export  function Listas({params}) {
                 Volver al candidato
             </Button>
         </Link>
-        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Ver rechazados
-            </Button>
-        </Link>
+        {lista === "aceptados" ? (
+            <Link to={`/Candidato/${interesado}/${"rechazados"}`}>
+                <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                    Ver rechazados
+                </Button>
+            </Link>
+        ) : (
+            <Link to={`/Candidato/${interesado}/${"aceptados"}`}>
+                <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                    Ver aceptados
+                </Button>
+            </Link>
+        )}
             <Grid container spacing={1}>
                 {perros?.map((perro) => (
                     <Grid item xs={3} md={3} key={perro.id}>

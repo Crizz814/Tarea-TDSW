@@ -27,9 +27,10 @@ export default function Interesado() {
 
     return (
         <>
-        
             <Link to={'/'} >
-                <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+                <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                    Volver
+                </Button>
             </Link>
             <Grid container spacing={1}>
                 {perros?.map((perro) => (
@@ -49,7 +50,6 @@ export default function Interesado() {
                     </Grid>
                 ))}
             </Grid>
-        
         </>
     )
 }
