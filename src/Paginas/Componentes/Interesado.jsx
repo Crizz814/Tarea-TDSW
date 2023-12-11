@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePerroQuery } from "../../queries/queryPerros";
 import { Button, Card, CardContent, CardMedia, Container, Grid, LinearProgress, List, ListItem } from "@mui/material";
 import {Candidato} from "../Componentes/Candidato.jsx";
@@ -15,6 +15,10 @@ export default function Interesado() {
             return 1; // Valor por defecto en caso de que height o width no estén disponibles
         }
     });
+
+    useEffect(() => {
+        refetch();
+    }, []);
 
     if (isLoading) {
         return (

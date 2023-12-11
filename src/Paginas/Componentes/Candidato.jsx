@@ -3,6 +3,7 @@ import { useRandomQuery } from "../../queries/queryRandom";
 import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useInteraccion } from '../../Context/InteraccionContext';
+import { useEffect } from "react";
 
 export function Candidato ({params}) {
 
@@ -33,11 +34,8 @@ export function Candidato ({params}) {
         );
     }
 
-    console.log(perro);
 
-    //const {register, handleSubmit} = useForm();
-
-    const { registrarInteraccion } = useInteraccion(); 
+    const { registrarInteraccion } = useInteraccion();
     
     let aspectRatio;
     if (perro?.url_imagen.height && perro?.url_imagen.width) {
@@ -60,6 +58,10 @@ export function Candidato ({params}) {
         registrarInteraccion(form);
         refetch();
     }
+
+    useEffect(() => {
+        refetch();
+    }, []);
 
     return (
         <>
