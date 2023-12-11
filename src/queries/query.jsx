@@ -27,7 +27,7 @@ export const buscarInfoQuery = async () => {
     descripcion: loremIpsum(),
   }
   
-  return perro;  
+  return perro;
 };
 
 function nombreRandom(){

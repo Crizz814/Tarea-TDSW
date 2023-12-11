@@ -1,4 +1,3 @@
-
 import { QueryClient, QueryClientProvider } from "react-query";
 import Perritos from "./Paginas/Componentes/Perritos";
 import RouterApp from "../Router";

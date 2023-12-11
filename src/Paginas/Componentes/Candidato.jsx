@@ -48,7 +48,9 @@ export function Candidato ({params}) {
 
     return (
         <>
-
+        <Link to={'../Interesado'} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+        </Link>
         <Container>
         <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
             <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>

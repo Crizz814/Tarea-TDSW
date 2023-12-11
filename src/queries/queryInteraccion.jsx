@@ -1,9 +1,7 @@
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2"
+import { clienteAxios } from "../Helpers/clienteAxios";
 import withReactContent from 'sweetalert2-react-content'
-
-// or via CommonJS
-//onst Swal = require('sweetalert2')
 
 const cliente = axios.create({
     baseURL: "http://localhost:8000/api/",
@@ -22,6 +20,3 @@ export const useRegistrarInteraccion = async (form) => {
     }
     return data;
 }
-
-
-

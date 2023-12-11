@@ -1,10 +1,8 @@
 import axios from "axios";
+import { clienteAxios } from "../Helpers/clienteAxios";
 
-const cliente = axios.create({
-    baseURL: "http://localhost:8000/api/",
-});
 
 export const useRegistrarPerro = async (form) => {
-    const { data } = await cliente.post("perro/registrarPerro", form);
+    const { data } = await clienteAxios.post("perro/registrarPerro", form);
     return data;
 }
