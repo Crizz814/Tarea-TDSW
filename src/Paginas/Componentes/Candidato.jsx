@@ -20,30 +20,6 @@ export function Candidato ({params}) {
         refetch();
     }, []);
 
-    if(perro === null){
-        return (
-            <>
-            <Link to={'../Interesado'} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Volver
-            </Button>
-        </Link>
-        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Ver rechazados
-            </Button>
-        </Link>
-        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Ver aceptados
-            </Button>
-        </Link>
-                <p>No hay perritos disponibles</p>
-            </>
-        );
-    }
-
-
     const { registrarInteraccion } = useInteraccion();
     
     let aspectRatio;
@@ -71,43 +47,51 @@ export function Candidato ({params}) {
 
     return (
         <>
-        <Link to={'../Interesado'} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Volver
-            </Button>
-        </Link>
-        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Ver rechazados
-            </Button>
-        </Link>
-        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
-                Ver aceptados
-            </Button>
-        </Link>
-        <Grid item md={4} xs={12} style={{ overflow: 'auto' }} alignItems="center">
-            <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
-                <Card sx={{ minWidth: '100%' }}>
-                    <CardActionArea style={ {width: '100%', aspectRatio }}>
-                        <CardMedia
-                            component="img"
-                            image={perro?.url_imagen}
-                            style={ {width: '100%' }}
-                        /> 
-                    </CardActionArea>
-                    <Typography gutterBottom variant="h5" component="div">
-                    nombre: {perro?.nombre}
-                    </Typography>
-                    <Typography gutterBottom variant="body1" component="div">
-                    descripcion: {perro?.descripcion}
-                    </Typography>
-                    <Button disabled={recargandoPerro} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=>agregarInteraccion("R")}>rechazar</Button>
-                    <Button disabled={recargandoPerro} style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=>agregarInteraccion("A")}>aceptar</Button>
-                </Card>
-            </Stack>
+        <Grid container style={{position: 'absolute', width: '100%', top: '0vh'}}>
+            <Grid item style={{}} alignItems="center" direction="column">
+                <Link to={'../Interesado'} >
+                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                        Volver
+                    </Button>
+                </Link>
+                <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
+                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                        Ver rechazados
+                    </Button>
+                </Link>
+                <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
+                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                        Ver aceptados
+                    </Button>
+                </Link>
+            </Grid>
+            {perro ? (
+                <Grid item style={{ overflow: 'auto' }} alignItems="center">
+                    <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
+                        <Card sx={{ minWidth: '100%' }}>
+                            <CardActionArea style={ {width: '100%', aspectRatio }}>
+                                <CardMedia
+                                    component="img"
+                                    image={perro?.url_imagen}
+                                    sx={{ aspectRatio }} 
+                                    md={{aspectRatio}}
+                                /> 
+                            </CardActionArea>
+                            <Typography gutterBottom variant="h5" component="div">
+                            nombre: {perro?.nombre}
+                            </Typography>
+                            <Typography gutterBottom variant="body1" component="div">
+                            descripcion: {perro?.descripcion}
+                            </Typography>
+                            <Button disabled={recargandoPerro} style={{backgroundColor: 'red', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=>agregarInteraccion("R")}>rechazar</Button>
+                            <Button disabled={recargandoPerro} style={{backgroundColor: 'green', color: 'white', width: '50%'}} variant='outlined' centerRipple onClick={()=>agregarInteraccion("A")}>aceptar</Button>
+                        </Card>
+                    </Stack>
+                </Grid>
+            ) : (
+                <p>No hay más perros</p>
+            )}
         </Grid>
-
         </>
     )
 
