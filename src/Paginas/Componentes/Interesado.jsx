@@ -34,7 +34,7 @@ export default function Interesado() {
         <>
             <Grid container justifyContent="center" style={{backgroundColor: '#212d45', width: '100%'}}>
                 <Link to={'/'} style={{position: 'absolute', left: '0'}}>
-                    <Button style={{backgroundColor: 'yellow', color: 'black', margin: '23px 20px'}} variant='outlined'>
+                    <Button style={{backgroundColor: 'white', color:'#212d45', margin: '23px 20px'}} variant='outlined'>
                         Volver
                     </Button>
                 </Link>

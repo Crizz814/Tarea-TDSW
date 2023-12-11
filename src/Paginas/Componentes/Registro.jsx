@@ -23,11 +23,16 @@ function Registro() {
 
   return (
     <Grid container justifyContent="center" style={{position: 'absolute', width: '100%', top: '0vh'}}>
-        <Link to={'/'} >
-            <Button style={{backgroundColor: 'yellow', color: 'black', margin: '20px'}} variant='contained'>Volver</Button>
-        </Link>
-        <Grid style={{backgroundColor: 'white', width: '700px', paddingBottom: '10px'}}>
-            <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45", padding: '10px 0px 20px 0px', color: 'white'}}>Registro de Perritos</h1>
+        
+        <Grid style={{backgroundColor: 'white', width: '2000px', height:'705px', paddingBottom: '10px'}}>
+            <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45", padding: '10px 0px 20px 0px', color: 'white'}}>
+            <Link to={'/'} >
+                <Button style={{backgroundColor: 'white', color: "#212d45", margin: '20px'}} variant='contained'>
+                    Volver
+                </Button>
+            </Link>
+                Registro de Perritos
+            </h1>
             <form id="caja" onSubmit={handleSubmit(onSubmit)}>
                 <Grid
                 container
