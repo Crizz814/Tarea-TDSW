@@ -1,13 +1,15 @@
 import { Button, Container, Divider, Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useBuscarImagenQuery } from '../../queries/queryImagen';
 import { useForm } from 'react-hook-form';
 import { usePerrito } from '../../Context/PerritoContext';
 import { Link } from 'react-router-dom';
+import { Cabecera } from "../Componentes/Cabecera.jsx";
 
 function Registro() {
 
     const {data: imagen, isLoading: cargandoImagen, refetch, isRefetching: recargandoImagen} = useBuscarImagenQuery();
+
 
     const {register, handleSubmit, reset} = useForm();
 
@@ -22,9 +24,10 @@ function Registro() {
     }
 
   return (
+    <>
     <Grid container justifyContent="center" style={{position: 'absolute', width: '100%', top: '0vh'}}>
-        
         <Grid style={{backgroundColor: 'white', width: '2000px', height:'705px', paddingBottom: '10px'}}>
+        <Cabecera />
             <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45", padding: '10px 0px 20px 0px', color: 'white'}}>
             <Link to={'/'} >
                 <Button style={{backgroundColor: 'white', color: "#212d45", margin: '20px'}} variant='contained'>
@@ -89,6 +92,7 @@ function Registro() {
             </form>
         </Grid>
     </Grid>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useInteraccion } from '../../Context/InteraccionContext';
 import { useEffect, useState } from "react";
+import { Cabecera } from "./Cabecera";
 
 export function Candidato ({params}) {
 
@@ -49,30 +50,32 @@ export function Candidato ({params}) {
         <>
         <Grid container style={{position: 'absolute', width: '100%', top: '0vh'}}>
             <Grid spacing='1' item style={{backgroundColor: '#212d45', width: '100%'}} alignItems="center" direction="row">
+            <Cabecera />
+
+            <h1  padding style={{width: '100%', color: 'white'}}>
             <Link to={'../Interesado'} >
-                    <Button style={{backgroundColor: 'white', color: '#212d45'}}>
+                    <Button style={{backgroundColor: 'white', color: '#212d45'}} >
                         Volver
                     </Button>
                 </Link>
                 <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-                <Button style={{backgroundColor: 'white', color: '#212d45'}}>
+                    <Button style={{backgroundColor: 'white', color: '#212d45'}} >
                         Ver rechazados
                     </Button>
                 </Link>
                 <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
-                <Button style={{backgroundColor: 'white', color: '#212d45'}}>
+                    <Button style={{backgroundColor: 'white', color: '#212d45'}} >
                         Ver aceptados
                     </Button>
                 </Link>
-            <h1 style={{width: '100%', textAlign: 'center', margin: '10px 0px 20px', color: 'white'}}>
                 Te gusta este perrito?
             </h1>
             </Grid>
             {perro ? (
                 <Grid item style={{ overflow: 'auto' }} alignItems="center">
                     <Stack spacing={{md:2}} divider={<Divider orientation="horizontal" flexItem />}>
-                        <Card sx={{ minWidth: '100%' }}>
-                            <CardActionArea style={ {width: '100%', aspectRatio }}>
+                        <Card sx={aspectRatio}>
+                            <CardActionArea style={ {maxwidth: '700px', aspectRatio }}>
                                 <CardMedia
                                     component="img"
                                     image={perro?.url_imagen}

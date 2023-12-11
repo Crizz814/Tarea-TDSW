@@ -20,7 +20,7 @@ export const buscarImagenQuery = async () => {
   let imagen = data.message;
   
   console.log(imagen);
-  return imagen; 
+  return imagen;
 };
 
 

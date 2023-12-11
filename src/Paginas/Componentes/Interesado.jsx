@@ -3,6 +3,7 @@ import { usePerroQuery } from "../../queries/queryPerros";
 import { Button, Card, CardContent, CardMedia, Container, Grid, LinearProgress, List, ListItem } from "@mui/material";
 import {Candidato} from "../Componentes/Candidato.jsx";
 import { Link } from "react-router-dom";
+import { Cabecera } from "../Componentes/Cabecera.jsx";
 
 export default function Interesado() {
 
@@ -32,6 +33,7 @@ export default function Interesado() {
 
     return (
         <>
+        <Cabecera />
             <Grid container justifyContent="center" style={{backgroundColor: '#212d45', width: '100%'}}>
                 <Link to={'/'} style={{position: 'absolute', left: '0'}}>
                     <Button style={{backgroundColor: 'white', color:'#212d45', margin: '23px 20px'}} variant='outlined'>
