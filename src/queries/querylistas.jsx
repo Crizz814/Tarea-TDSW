@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useQuery } from "react-query";
 import { clienteAxios } from "../Helpers/clienteAxios";
 
@@ -32,6 +31,6 @@ const fetchRechazados = async (id) => {
 
 const fetchAceptados = async (id) => {
     const { data } = await clienteAxios.get(`interaccion/verAceptados?id=${id}`);
-    console.log(data.perros);
+    console.log("fetchAceptados: ", data.perros);
     return data.perros;
 };

@@ -74,7 +74,7 @@ export function Candidato ({params}) {
             </Stack>
         </Grid>
         <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-            <Button >
+            <Button>
                 Rechazados
             </Button>
         </Link>
