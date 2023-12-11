@@ -49,7 +49,19 @@ export function Candidato ({params}) {
     return (
         <>
         <Link to={'../Interesado'} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Volver
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Ver rechazados
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Ver aceptados
+            </Button>
         </Link>
         <Container>
         <Grid item md={4} xs={12} style={{ overflow: 'auto' }}>
@@ -73,16 +85,6 @@ export function Candidato ({params}) {
                 </Card>
             </Stack>
         </Grid>
-        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-            <Button >
-                Rechazados
-            </Button>
-        </Link>
-        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
-            <Button >
-                Aceptados
-            </Button>
-        </Link>
         </Container>
 
         </>
