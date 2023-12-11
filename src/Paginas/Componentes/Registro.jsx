@@ -21,70 +21,69 @@ function Registro() {
         refetch();
     }
 
-
-
-
-
   return (
-    <Container>
+    <Grid container justifyContent="center" style={{position: 'absolute', width: '100%', top: '0vh'}}>
         <Link to={'/'} >
-            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>Volver</Button>
+            <Button style={{backgroundColor: 'yellow', color: 'black', margin: '20px'}} variant='contained'>Volver</Button>
         </Link>
-        <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45" }}>Registro de Perritos</h1>
-        <form id="caja" onSubmit={handleSubmit(onSubmit)}>
-            <Grid
-            container
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            style={{backgroundColor:"#d5d5d5"}}
-            >
-                <Grid item>
-                    <TextField
-                        margin="dense"
-                        label="Nombre"
-                        variant="outlined"
-                        fullWidth
-                        name="nombre"
-                        {...register("nombre")}
-                    />
-                </Grid>
-                <Grid item>
-                    <TextField
-                        margin="dense"
-                        label="Descripcion"
-                        variant="outlined"
-                        fullWidth
-                        name="descripcion"
-                        {...register("descripcion")}
-                    />
-                </Grid>
-                <Grid item>
-                    <Typography
-                    variant="h6"
-                    component="div"
-                    gutterBottom
-                    >
-                        Imagen de Perrito
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <img style={ {width: '400px'}} src={imagen} alt="imagen" onError={refetch}/>
-                </Grid>
-                <Button color="primary" variant="contained" onClick={refetch}>Refrescar Imagen</Button>
-                <Divider />
-                <Button
-                    id="terminar_registro"
-                    color="success"
-                    size="large"
-                    variant="contained"
-                    type="submit"
+        <Grid style={{backgroundColor: 'white', width: '700px', paddingBottom: '10px'}}>
+            <h1 style={{width: '100%', textAlign: 'center', margin: '0px 0px 0px', backgroundColor:"#212d45", padding: '10px 0px 20px 0px', color: 'white'}}>Registro de Perritos</h1>
+            <form id="caja" onSubmit={handleSubmit(onSubmit)}>
+                <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
                 >
-                    Terminar Registro
-                </Button>
-            </Grid>
-        </form>
-    </Container>
+                    <Grid item>
+                        <TextField
+                            margin="dense"
+                            label="Nombre"
+                            variant="outlined"
+                            fullWidth
+                            name="nombre"
+                            {...register("nombre")}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <TextField
+                            margin="dense"
+                            label="Descripcion"
+                            variant="outlined"
+                            fullWidth
+                            name="descripcion"
+                            {...register("descripcion")}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Typography
+                        variant="h6"
+                        component="div"
+                        color={"#212d45"}
+                        gutterBottom
+                        >
+                            Imagen de Perrito
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <img style={ {width: '400px'}} src={imagen} alt="imagen" onError={refetch}/>
+                    </Grid>
+                    <Button style={{margin: '10px'}} color="primary" variant="contained" onClick={refetch}>Refrescar Imagen</Button>
+                    <Divider />
+                    <Button
+                        id="terminar_registro"
+                        color="success"
+                        size="large"
+                        variant="contained"
+                        margin="dense"
+                        type="submit"
+                    >
+                        Terminar Registro
+                    </Button>
+                </Grid>
+            </form>
+        </Grid>
+    </Grid>
   );
 }
 

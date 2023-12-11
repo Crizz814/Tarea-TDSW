@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Perritos from "./Paginas/Componentes/Perritos";
 import RouterApp from "../Router";
 import { BrowserRouter } from "react-router-dom";
+import { Navegacion } from "./Paginas/Componentes/Navegacion";
 
 const queryClient = new QueryClient();
 
