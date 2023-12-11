@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { clienteAxios } from "../Helpers/clienteAxios";
 
 export const useListasQuery = (id, lista) => {
     console.log(id, lista);
@@ -24,19 +25,13 @@ export const useListasQuery = (id, lista) => {
 };
 
 const fetchRechazados = async (id) => {
-    const cliente = axios.create({
-        baseURL: "http://localhost:8000/api/",
-    });
-    const { data } = await cliente.get(`interaccion/verRechazados?id=${id}`);
+    const { data } = await clienteAxios.get(`interaccion/verRechazados?id=${id}`);
     console.log(data);
     return data.perros;
 };
 
 const fetchAceptados = async (id) => {
-    const cliente = axios.create({
-        baseURL: "http://localhost:8000/api/",
-    });
-    const { data } = await cliente.get(`interaccion/verAceptados?id=${id}`);
+    const { data } = await clienteAxios.get(`interaccion/verAceptados?id=${id}`);
     console.log(data.perros);
     return data.perros;
 };

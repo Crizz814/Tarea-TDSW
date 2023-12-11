@@ -8,7 +8,7 @@ const cliente = axios.create({
 });
 
 export const useRegistrarInteraccion = async (form) => {
-    const { data } = await cliente.post("interaccion/registrarInteraccion", form);
+    const { data } = await clienteAxios.get("perro/listarPerros", form);
     console.log(data.mensaje);
     if(data.mensaje === "It's a Match!"){
         const MySwal = withReactContent(Swal)
