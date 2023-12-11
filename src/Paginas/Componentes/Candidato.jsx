@@ -13,6 +13,21 @@ export function Candidato ({params}) {
     if(perro === null){
         return (
             <>
+            <Link to={'../Interesado'} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Volver
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Ver rechazados
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Ver aceptados
+            </Button>
+        </Link>
                 <p>No hay perritos disponibles</p>
             </>
         );

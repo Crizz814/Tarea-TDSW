@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useListasQuery } from "../../queries/querylistas";
-import { Card, CardContent, CardMedia, Container, Grid } from "@mui/material";
+import { Button, Card, CardContent, CardMedia, Container, Grid } from "@mui/material";
 import { useEffect } from "react";
 
 export  function Listas({params}) {
@@ -23,7 +23,21 @@ export  function Listas({params}) {
 
     return (
         <>
-            <Container>
+        <Link to={'../Interesado'} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Volver a la lista de perros
+            </Button>
+        </Link>
+        <Link to ={`/Candidato/${interesado}`}>
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Volver al candidato
+            </Button>
+        </Link>
+        <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
+            <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                Ver rechazados
+            </Button>
+        </Link>
             <Grid container spacing={1}>
                 {perros?.map((perro) => (
                     <Grid item xs={3} md={3} key={perro.id}>
@@ -37,7 +51,6 @@ export  function Listas({params}) {
                     </Grid>
                 ))}
             </Grid>
-        </Container>
         </>
     );
 }
