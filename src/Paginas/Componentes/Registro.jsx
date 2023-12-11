@@ -9,7 +9,7 @@ function Registro() {
 
     const {data: imagen, isLoading: cargandoImagen, refetch, isRefetching: recargandoImagen} = useBuscarImagenQuery();
 
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm();
 
     const { registrarPerro } = usePerrito();
 
@@ -17,6 +17,8 @@ function Registro() {
         data = {...data, imagen: imagen};
         console.log(data);
         registrarPerro(data);
+        reset();
+        refetch();
     }
 
 

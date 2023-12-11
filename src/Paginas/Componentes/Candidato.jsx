@@ -11,6 +11,10 @@ export function Candidato ({params}) {
     
     const {data: perro, isLoading, isError, error, refetch, isRefetching: recargandoPerro} = useRandomQuery(interesado);
 
+    useEffect(() => {
+        refetch();
+    }, []);
+
     if(perro === null){
         return (
             <>
@@ -58,10 +62,6 @@ export function Candidato ({params}) {
         registrarInteraccion(form);
         refetch();
     }
-
-    useEffect(() => {
-        refetch();
-    }, []);
 
     return (
         <>
