@@ -3,13 +3,18 @@ import { useRandomQuery } from "../../queries/queryRandom";
 import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useInteraccion } from '../../Context/InteraccionContext';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Candidato ({params}) {
 
     const {interesado} = useParams();
+    const [anterior, setAnterior] = useState(null);
     
     const {data: perro, isLoading, isError, error, refetch, isRefetching: recargandoPerro} = useRandomQuery(interesado);
+
+    if(anterior !== null && anterior.id === perro?.id){
+        refetch();
+    }
 
     useEffect(() => {
         refetch();
@@ -48,7 +53,7 @@ export function Candidato ({params}) {
       aspectRatio = 1; // Valor por defecto en caso de que height o width no estén disponibles
     }
 
-    if (isLoading) {
+    if (isLoading || recargandoPerro) {
         return (
             <>
                 <p>Cargando perrito...</p>
@@ -60,6 +65,7 @@ export function Candidato ({params}) {
     function agregarInteraccion(interaccion){
         const form = {id_perro_interesado: interesado, id_perro_candidato: perro.id, preferencia: interaccion};
         registrarInteraccion(form);
+        setAnterior(perro);
         refetch();
     }
 
