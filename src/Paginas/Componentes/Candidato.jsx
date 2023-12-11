@@ -48,22 +48,25 @@ export function Candidato ({params}) {
     return (
         <>
         <Grid container style={{position: 'absolute', width: '100%', top: '0vh'}}>
-            <Grid item style={{}} alignItems="center" direction="column">
-                <Link to={'../Interesado'} >
-                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+            <Grid spacing='1' item style={{backgroundColor: '#212d45', width: '100%'}} alignItems="center" direction="row">
+            <Link to={'../Interesado'} >
+                    <Button style={{backgroundColor: 'white', color: '#212d45'}}>
                         Volver
                     </Button>
                 </Link>
                 <Link to={`/Candidato/${interesado}/${"rechazados"}`} >
-                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                <Button style={{backgroundColor: 'white', color: '#212d45'}}>
                         Ver rechazados
                     </Button>
                 </Link>
                 <Link to={`/Candidato/${interesado}/${"aceptados"}`} >
-                    <Button style={{backgroundColor: 'yellow', color: 'black'}} variant='outlined'>
+                <Button style={{backgroundColor: 'white', color: '#212d45'}}>
                         Ver aceptados
                     </Button>
                 </Link>
+            <h1 style={{width: '100%', textAlign: 'center', margin: '10px 0px 20px', color: 'white'}}>
+                Te gusta este perrito?
+            </h1>
             </Grid>
             {perro ? (
                 <Grid item style={{ overflow: 'auto' }} alignItems="center">
